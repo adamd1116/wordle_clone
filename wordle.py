@@ -48,6 +48,7 @@ gameStarted = False
 WordL = []
 gWord = []
 currGuess = []
+c = False
 
 def getword():
     
@@ -60,6 +61,7 @@ def getword():
     
 
 rWord = getword()
+print(rWord)
 
 for i in range(len(rWord)):
 	WL.append('_')
@@ -79,7 +81,8 @@ gameStarted=True
 
 if gameStarted==True:
     print("\n\tThe game has started")
-    while guesses>0:
+    while guesses!=0:
+        guesses-=1
         
         colourOfOutput = []
         
@@ -93,9 +96,10 @@ if gameStarted==True:
             else:
                 break
 
-        if firstguess == rWord:
+        if firstguess == rWord.strip():
             print("\t"+colours.bg.green+colours.fg.black+rWord+colours.reset)
             print("\n\tCorrect!")
+            c=True
             break
         elif firstguess != rWord:
             for i in firstguess:
@@ -131,9 +135,8 @@ if gameStarted==True:
                     else:
                         print(f"{colours.bg.orange+colours.fg.black+b[i]+colours.reset}",end="")
                 
-        guesses-=1
         print(f"\n\tGuesses left: {guesses}")
         gWord.clear()
 
-if guesses==0:
+if guesses==0 and c==False:
     print(f"\n\tBetter luck next time, the word was: {rWord}")
