@@ -134,3 +134,6 @@ if gameStarted==True:
         guesses-=1
         print(f"\n\tGuesses left: {guesses}")
         gWord.clear()
+
+if guesses==0:
+    print(f"\n\tBetter luck next time, the word was: {rWord}")
