@@ -80,7 +80,7 @@ if gameStarted==True:
         
         colourOfOutput = []
         
-        if guesses==5:
+        if guesses==4:
             print("\n\tGuess below: ")
         
         while True:
@@ -109,25 +109,24 @@ if gameStarted==True:
                     colourOfOutput.append("n")
 
         for i in range(0,5):
-            if guesses!=1:
-                if colourOfOutput[i]=="n":
-                    b = "".join(gWord)
-                    if i==0:
-                        print(f"\t{b[i]}",end="")
-                    else:
-                        print(f"{b[i]}",end="")
-                elif colourOfOutput[i]=="g":
-                    b = "".join(gWord)
-                    if i==0:
-                        print(f"\t{colours.bg.green+colours.fg.black+b[i]+colours.reset}",end="")
-                    else:
-                        print(f"{colours.bg.green+colours.fg.black+b[i]+colours.reset}",end="")
-                elif colourOfOutput[i]=="o":
-                    b = "".join(gWord)
-                    if i==0:
-                        print(f"\t{colours.bg.orange+colours.fg.black+b[i]+colours.reset}",end="")
-                    else:
-                        print(f"{colours.bg.orange+colours.fg.black+b[i]+colours.reset}",end="")
+            if colourOfOutput[i]=="n":
+                b = "".join(gWord)
+                if i==0:
+                    print(f"\t{b[i]}",end="")
+                else:
+                    print(f"{b[i]}",end="")
+            elif colourOfOutput[i]=="g":
+                b = "".join(gWord)
+                if i==0:
+                    print(f"\t{colours.bg.green+colours.fg.black+b[i]+colours.reset}",end="")
+                else:
+                    print(f"{colours.bg.green+colours.fg.black+b[i]+colours.reset}",end="")
+            elif colourOfOutput[i]=="o":
+                b = "".join(gWord)
+                if i==0:
+                    print(f"\t{colours.bg.orange+colours.fg.black+b[i]+colours.reset}",end="")
+                else:
+                    print(f"{colours.bg.orange+colours.fg.black+b[i]+colours.reset}",end="")
                 
         print(f"\n\tGuesses left: {guesses}")
         gWord.clear()
