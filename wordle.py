@@ -55,7 +55,6 @@ def getword():
     
 
 rWord = getword()
-print(rWord)
 
 for i in range(len(rWord)):
 	WL.append('_')
