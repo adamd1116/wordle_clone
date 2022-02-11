@@ -36,12 +36,6 @@ class colours:
         cyan='\033[46m'
         lightgrey='\033[47m'
 
-words = [
-	'audio',
-	'frame',
-	'mouse'
-]
-
 guesses = 5
 WL = []
 gameStarted = False
