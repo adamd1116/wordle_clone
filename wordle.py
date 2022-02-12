@@ -73,8 +73,6 @@ def startgame():
 startgame()
 gameStarted=True
 
-print(rWord)
-
 if gameStarted==True:
     print("\n\tThe game has started")
     while guesses!=0:
