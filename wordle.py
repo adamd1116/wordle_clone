@@ -36,13 +36,14 @@ class colours:
         cyan='\033[46m'
         lightgrey='\033[47m'
 
-guesses = 5
+guesses = 6
 WL = []
 gameStarted = False
 WordL = []
 gWord = []
 currGuess = []
 c = False
+b=0
 
 def getword():
     
@@ -65,12 +66,14 @@ for i in rWord:
 WLconv = "".join(WL)
 
 def startgame():
-    print("1) You have 5 guesses.")
+    print("\n1) You have 6 guesses.")
     print("2) Words must have 5 letters")
     print("3) If you guess a letter right, but it isn't in the right place\n   then it will be yellow, if you guess a correct letter and it is\n   in the same place then it will be green. if the letter is not in\n   the word it will remain grey")
 
 startgame()
 gameStarted=True
+
+print(rWord)
 
 if gameStarted==True:
     print("\n\tThe game has started")
@@ -79,7 +82,7 @@ if gameStarted==True:
         
         colourOfOutput = []
         
-        if guesses==4:
+        if guesses==5:
             print("\n\tGuess below: ")
         
         while True:
@@ -90,8 +93,9 @@ if gameStarted==True:
                 break
 
         if firstguess == rWord.strip():
-            print("\t"+colours.bg.green+colours.fg.black+rWord+colours.reset)
-            print("\n\tCorrect!")
+            print("\t"+colours.bg.green+colours.fg.black+rWord+colours.reset,colours.reset)
+            print("\tCorrect!")
+            b=1
             c=True
             break
         elif firstguess != rWord:
@@ -108,7 +112,7 @@ if gameStarted==True:
                     colourOfOutput.append("n")
 
         for i in range(0,5):
-            if colourOfOutput[i]=="n":
+            if colourOfOutput[i]=="n"and b!=1:
                 b = "".join(gWord)
                 if i==0:
                     print(f"\t{b[i]}",end="")
