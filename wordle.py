@@ -93,9 +93,8 @@ if gameStarted==True:
                 break
 
         if firstguess == rWord.strip():
-            print("\t"+colours.bg.green+colours.fg.black+rWord+colours.reset,colours.reset)
-            print("\tCorrect!")
-            b=1
+            print(f"\t{colours.fg.black+colours.bg.green+(rWord.strip())+colours.reset}")
+            print("\n\tCorrect!")
             c=True
             break
         elif firstguess != rWord:
